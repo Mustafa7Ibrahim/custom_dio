@@ -16,8 +16,13 @@ class DioHelper {
     if (!kIsWeb) {
       (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
           (HttpClient client) {
-        client.badCertificateCallback =
-            (X509Certificate cert, String host, int port) => true;
+        client.badCertificateCallback = (
+          X509Certificate cert,
+          String host,
+          int port,
+        ) {
+          return true;
+        };
         return client;
       };
     }

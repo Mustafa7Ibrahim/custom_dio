@@ -7,7 +7,7 @@ import '../preferences_constants.dart';
 
 /// APP Interceptor
 /// This Interceptor handle error and response request for each dio request
-class AppInterceptors extends Interceptor {
+class AppInterceptors extends InterceptorsWrapper {
   // Header field name
   static const acceptLangHeader = "Accept-Language";
   static const acceptHeader = 'accept';
@@ -24,6 +24,9 @@ class AppInterceptors extends Interceptor {
 
   // @override
   // void onResponse(Response response, ResponseInterceptorHandler handler) {
+  //   if(response.statusCode == 401){
+  //     log(response.data.toString());
+  //   }
   //   super.onResponse(response, handler);
   // }
 
@@ -31,7 +34,6 @@ class AppInterceptors extends Interceptor {
   Future onRequest(RequestOptions options, handler) async {
     final token = await hiveHelper.getData(Constants.token);
     final baseApi = await hiveHelper.getData(Constants.baseUrl);
-    log(token.toString());
     options.baseUrl = baseApi;
 
     /// Create Time out for sending

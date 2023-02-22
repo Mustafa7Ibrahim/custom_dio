@@ -1,7 +1,7 @@
 import 'dart:io';
 
+import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
-import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
 
 import '../get_it.dart';
@@ -14,7 +14,7 @@ class DioHelper {
     dio.interceptors.add(AppInterceptors(gi()));
 
     if (!kIsWeb) {
-      (dio.httpClientAdapter as IOHttpClientAdapter).onHttpClientCreate =
+      (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
           (HttpClient client) {
         client.badCertificateCallback =
             (X509Certificate cert, String host, int port) {

@@ -20,18 +20,18 @@ class HiveDioHelper {
   }
 
   getData(String key) {
-    final prayerBox = Hive.box(hiveData);
-    return prayerBox.get(key);
+    final dioBox = Hive.box(hiveData);
+    return dioBox.get(key);
   }
 
   removeData(String key) {
-    final prayerBox = Hive.box(hiveData);
-    return prayerBox.delete(key);
+    final dioBox = Hive.box(hiveData);
+    return dioBox.delete(key);
   }
 
   Future<void> putData(String key, dynamic value) async {
-    final prayerBox = Hive.box(hiveData);
-    return prayerBox.put(key, value);
+    final dioBox = Hive.box(hiveData);
+    return dioBox.put(key, value);
   }
 
   Future getToken() async {

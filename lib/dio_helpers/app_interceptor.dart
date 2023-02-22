@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 
@@ -22,13 +21,6 @@ class AppInterceptors extends InterceptorsWrapper {
 
   final HiveDioHelper hiveHelper;
 
-  // @override
-  // void onResponse(Response response, ResponseInterceptorHandler handler) {
-  //   if(response.statusCode == 401){
-  //     log(response.data.toString());
-  //   }
-  //   super.onResponse(response, handler);
-  // }
 
   @override
   Future onRequest(RequestOptions options, handler) async {
@@ -37,10 +29,10 @@ class AppInterceptors extends InterceptorsWrapper {
     options.baseUrl = baseApi;
 
     /// Create Time out for sending
-    options.sendTimeout = 1000 * 1000;
+    options.sendTimeout = (1000 * 1000) as Duration?;
 
     /// Create Time out for Connect
-    options.connectTimeout = 1000 * 1000;
+    options.connectTimeout = (1000 * 1000) as Duration?;
 
     /// Redirects true
     options.followRedirects = true;

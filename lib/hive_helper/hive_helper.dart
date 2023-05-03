@@ -7,7 +7,6 @@ const String hiveData = "hiveData";
 class HiveDioHelper {
   static init() async {
     await Hive.initFlutter();
-
     await openboxData();
   }
 

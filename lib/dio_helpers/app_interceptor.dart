@@ -27,10 +27,10 @@ class AppInterceptors extends InterceptorsWrapper {
     options.baseUrl = baseApi;
 
     /// Create Time out for sending
-    options.sendTimeout = (1000 * 1000);
+    options.sendTimeout = const Duration(seconds: 8);
 
     /// Create Time out for Connect
-    options.connectTimeout = (1000 * 1000);
+    options.connectTimeout = const Duration(seconds: 8);
 
     /// Redirects true
     options.followRedirects = true;

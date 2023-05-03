@@ -6,7 +6,7 @@ import 'hive_helper/hive_helper.dart';
 
 final gi = GetIt.instance;
 
-Future<void> init() async {
+Future<void> initCustomDio() async {
   // Bloc
 
   // Repository

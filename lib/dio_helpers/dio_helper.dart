@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:talker_dio_logger/talker_dio_logger.dart';
 
 import '../get_it.dart';
 import 'app_interceptor.dart';
@@ -7,7 +8,10 @@ import 'app_interceptor.dart';
 class DioHelper {
   static Dio instanceDio() {
     Dio dio = gi();
-    dio.interceptors.add(AppInterceptors(gi()));
+    dio.interceptors.addAll([
+      AppInterceptors(gi()),
+      TalkerDioLogger(),
+    ]);
 
     return dio;
   }

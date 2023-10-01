@@ -48,9 +48,4 @@ class AppInterceptors extends InterceptorsWrapper {
 
     return super.onRequest(options, handler);
   }
-
-  @override
-  Future<void> onError(DioException err, handler) async {
-    return super.onError(err, handler);
-  }
 }
